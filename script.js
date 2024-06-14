@@ -1,3 +1,4 @@
+
 // mostrar y ocultar divs
 function form_oculto(id) {
     var divToShow = document.getElementById(id);
