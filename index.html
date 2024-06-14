@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculador de Estimación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body>
+    <div id="myModal" class="modal">
+        <h1>¡Bienvenido/a!</h1>
+        <p>Por favor, ingresa tu nombre:</p>
+        <input type="text" id="nombre">
+        <button onclick="mostrarNombre()" style="cursor: pointer;" type="button" class="btn btn-primary">Aceptar</button>
+      </div>
+      
+      
+    <div class="container-md">
+        
+        <div class="container">
+            <h1 id="bienvenido">¡Bienvenido!</h1>
+            <h3>Te presentamos la "Calculadora de Estimación por Intervalos y Puntual"</h3>
+    
+        <div class="exercise">
+            <h4>¿Cómo funciona la Calculadora de Estimaciones?</h4>
+            <p>En esta calculadora contiene formulas para calcular las estimaciones, con los datos que ingreses. <br>
+            Debes ingresar los datos solicitados en el formulario y hacer click en el botón calcular.
+            <br> <strong>Los siguiente botones te permiten cambiar la vista de una calculadora a otra:</strong> </p>
+            <div class="btn-group" role="group">
+                <button onclick="form_oculto('int')" style="cursor: pointer;" type="button" class="btn btn-primary">Estimación por Intervalo</button>
+                <button onclick="form_oculto('punt')" style="cursor: pointer;" type="button" class="btn btn-warning">Estimación Puntual</button>    
+            </div>
+           </div>
+        </div>
+       <br>
+        <div id="int" style="padding: 2px;" class="content active">
+            <div class="container-sm">
+            <h2>Calculadora de Estimación por Intervalos</h2>
+            <label for="inputMuestra" class="form-label"> <strong>Media Muestral </strong></label>
+        <input type="number" id="media" class="form-control" required>
+        <div id="passwordHelpBlock" class="form-text">
+            Media aritmética de un conjunto de valores tomados de una muestra de una población.
+        </div>
+            <label for="inputMuestra" class="form-label"><strong>Tamaño de Muestra</strong></label>
+            <input type="number" id="tamanio" class="form-control" required>
+            <div id="passwordHelpBlock" class="form-text">
+                El grupo pequeño de datos elegido para la estimación.
+            </div>
+            <label for="inputMuestra" class="form-label"><strong>Desviación Estándar</strong></label>
+            <input type="number" id="desviacion" class="form-control" required>
+            <div id="passwordHelpBlock" class="form-text">
+                Mide la dispersión de los datos de la media muestral.
+            </div>
+            <label for="inputMuestra" class="form-label"><strong>Nivel de Confianza (90, 95, 99)</strong></label>
+            <input type="number" id="confianza" class="form-control" required>
+            <div id="passwordHelpBlock" class="form-text">
+                Medida de Certeza que se tiene de que un intervalo tenga el verdadero promodeio poblacional.
+            </div>
+            <button type="button" onclick="calcularIntervalo()"  class="btn btn-success">Calcular</button>
+            <br>
+            <h4 style="padding: 2px;">Resultado: <div class="resultado" id="resultado"></div> </h4>
+            
+        </div>
+        </div>
+        
+     
+        <div id="punt" style="padding: 2px;" class="content">
+        <div class="container-sm">
+            <h2>Calculadora de Estimación Puntual</h2>
+            <div id="passwordHelpBlock" class="form-text">
+                Seleccióna una de las opcionas para hacer la estimación puntual:
+            </div>
+            <select id="calculationType">
+                <option value="mean">Media</option>
+                <option value="median">Mediana</option>
+                <option value="mode">Moda</option>
+                <option value="stdDev">Desviación Estándar</option>
+                <option value="variance">Varianza</option>
+            </select>
+            <br>
+            <label for="inputMuestra" class="form-label"><strong>Datos (separados por una coma ',' )</strong></label>
+        <input type="text" id="dataInput" class="form-control">
+        <div id="passwordHelpBlock" class="form-text">
+            Los datos, son la muestra ortorgada a los investigadores... Ejemplo(12, 31, 45, 67, 89, 01, 23, 24, 12, 56, 77, 89, 12, ..., 32, 45, 67, 89...)
+        </div>
+        <button type="button" onclick="calculate()" class="btn btn-success">Calcular</button>
+        <h4 style="padding: 2px;">Resultado: <div class="result" id="result"></div> </h4>
+          </div>
+          
+        </div>
+        <footer class="footer">
+            <p>Copyright 2024</p>
+            <p> <strong>Katherine Hernández, Joseph Pérez</strong></p>
+        </footer>
+        
+    </div>
+    
+      
+
+
+    <script src="/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
